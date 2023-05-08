@@ -1,34 +1,37 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 function Lista(props){
 
-    const [frutas, setFrutas] = useState([])
-    const [fruta, setFruta] = useState([])
-
-    useEffect(()=>{
-        fetch("http://localhost:5000/frutas",{method:"GET",headers:{"Content-Type":"application/json"}})
-        .then((resp)=>resp.json())
-        .then((data)=>{setFrutas(data)})
-        .catch((err)=>console.log(err))
-    },[])
+    const [frutas, setFrutas] = useState(["maça", "banana", "uva", "goiaba", "morango"])
+    const [fruta, setFruta] = useState()
 
     function mostrarFruta(){
         alert(`A fruta selecionada foi ${fruta}`)
     }
     
+    function handleChange(e){
+        setFruta(e.target.value)
+    }
+
+    const submit = (e) => {
+        e.preventDefault()
+        setFrutas([...frutas, fruta])
+    }
+
     return(
         <div>
             <h1>{props.name}</h1>
+            
             <forms>
                 <select name="frutas" onChange={(e)=>setFruta(e.target.value)}>
                     <option>Selecione uma fruta:</option>
                     {frutas.map((frutas)=>(
-                        <option value={frutas.name} key={frutas.id}>{frutas.name}</option>
+                        <option value={frutas} key={frutas.index}>{frutas}</option>
                     ))}
                 </select>
                 <button type="submit" onClick={mostrarFruta}>Aperte para ver a fruta escolhida</button>
-                <input type="text" placeholder="Digite uma nova fruta:" />
-                <button type="submit">inserir</button>
+                <input type="text" placeholder="Digite uma nova fruta:" onChange={handleChange}/>
+                <button type="submit" onClick={submit}>inserir</button>
             </forms>
         </div>
     )

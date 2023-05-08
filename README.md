@@ -5,17 +5,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Você tem que instalar as dependencias utilizando npm install:
 
-### `npm instal`
+### `npm install`
 
 Voce deve instalar os pacotes json server, react icons, react router dom e o uuid. Utilizando o comando:
 
-### `npm install json-server react-icons react-router-dom uuid`
+### `npm install react-icons react-router-dom`
 
 Você consegue rodar o codigo utilizando:
 
 ### `npm start`
-
-Apos começar a aplicacao, deve-se abrir outro terminal e rodar o servidor de backend:
-
-### `npm run backend`
 
