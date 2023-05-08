@@ -29,7 +29,9 @@ function Lista(props){
                         <option value={frutas} key={frutas.index}>{frutas}</option>
                     ))}
                 </select>
+                
                 <button type="submit" onClick={mostrarFruta}>Aperte para ver a fruta escolhida</button>
+
                 <input type="text" placeholder="Digite uma nova fruta:" onChange={handleChange}/>
                 <button type="submit" onClick={submit}>inserir</button>
             </forms>

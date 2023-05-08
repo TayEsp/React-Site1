@@ -9,6 +9,7 @@ function FormsAutomovel(props){
 
     const [automovel, setAutomovel] = useState([])
 
+    //a lista de imagens importadas fica aqui
     let imagens = {
         golf,
         gol,
@@ -17,13 +18,13 @@ function FormsAutomovel(props){
     }
 
     function trocarModelo(tipo){
-        if (tipo == "golf"){
+        if (tipo === "golf"){
             return("jeta")
-        } else if(tipo == "gol"){
-            return("fucks")
-        } else if(tipo == "impala"){
+        } else if(tipo === "gol"){
+            return("fucs")
+        } else if(tipo === "impala"){
             return("honda")
-        } else if(tipo == "kombi"){
+        } else if(tipo === "kombi"){
             return("toyota")
         }
     }
@@ -65,8 +66,10 @@ function FormsAutomovel(props){
                 <button onClick={submit}>inserir</button>  
                 <button onClick={remove}>excluir</button>
             </form>
+
             {(props.tipoAutomovel.length > 0) && <p>Isto é um {props.tipoAutomovel[props.index][0]}</p>}
             {(props.tipoAutomovel.length > 0) &&<img src={imagens[props.tipoAutomovel[props.index][0]]} key = {props.index} onClick={mostrarAutomovel} style={{width:'20em'}} alt="imagens"/>}
+
             <button onClick={imagemAnterior}>anterior</button>
             <button onClick={imagemPosterior}>proximo</button>
         </div>

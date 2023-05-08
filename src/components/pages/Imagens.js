@@ -9,8 +9,8 @@ function Imagens(props){
 
     const[imagem,setImagem] = useState([])
     const[galeria,setGaleria] = useState([])
-    var id = 0;
     
+    //a lista de imagens importadas fica aqui
     let imagens = {
         imagem1,
          imagem2,
@@ -19,15 +19,8 @@ function Imagens(props){
     }
 
     function trocarImagem(num){
-        if (num == 1){
-            return("imagem1")
-        } else if(num == 2){
-            return("imagem2")
-        } else if(num == 3){
-            return("imagem3")
-        } else if(num == 4){
-            return("imagem4")
-        }
+        const img = ("imagem" + num)
+        return (img)
     }
 
     const submit = (e) => {
@@ -41,13 +34,12 @@ function Imagens(props){
     }
 
     function handleChange(e){
-        setImagem({name: (trocarImagem(e.target.value))}, {id: (id=id+1)})
+        setImagem({name: (trocarImagem(e.target.value))})
     }
 
     return(
         <div>
             <h1>{props.name}</h1>
-            {console.log(galeria)}
             <p>Galeria de Imagens</p>
             <form >
                 <input type="text" placeholder="Insira o número da imagem:" onChange={handleChange} />
@@ -55,7 +47,7 @@ function Imagens(props){
                 <button onClick={remove}>excluir</button>
             </form>
             {galeria.map((imagem)=>(
-                        <img src={imagens[imagem.name]} key = {imagem.id} style={{width:'20em'}} alt="imagens"/>
+                        <img src={imagens[imagem.name]} key = {galeria.index} style={{width:'20em'}} alt="imagens"/>
             ))}
         </div>
     )

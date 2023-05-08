@@ -15,3 +15,6 @@ Você consegue rodar o codigo utilizando:
 
 ### `npm start`
 
+Ao importar as imagens nos componentes FormsAutomovel e Imagens, você deve adicionar as variavels nas
+listas correspondentes dos mesmos
+
