@@ -7,14 +7,17 @@ Você tem que instalar as dependencias utilizando npm install:
 
 ### `npm install`
 
-Voce deve instalar os pacotes json server, react icons, react router dom e o uuid. Utilizando o comando:
+Você deve instalar os pacotes json server, react icons, react router dom e o uuid. Utilizando o comando:
 
-### `npm install react-icons react-router-dom`
+### `npm install json-server react-icons react-router-dom`
 
 Você consegue rodar o codigo utilizando:
 
 ### `npm start`
 
-Ao importar as imagens nos componentes FormsAutomovel e Imagens, você deve adicionar as variavels nas
-listas correspondentes dos mesmos
+Apos começar a aplicacao, deve-se abrir outro terminal e rodar o servidor de backend:
+
+### `npm run backend`
+
+#### Obs: Ao importar as imagens nos componentes FormsAutomovel e Imagens, você deve adicionar as variavels nas listas correspondentes dos mesmos (que esta comentada na parte do codigo)
 

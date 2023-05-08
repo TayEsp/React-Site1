@@ -1,7 +1,7 @@
-import golf from '../../images/golf.jpg'
-import gol from '../../images/gol.jpg'
-import impala from '../../images/impala.jpg'
-import kombi from '../../images/kombi.jpg'
+import automovel1 from '../../images/golf.jpg'
+import automovel2 from '../../images/gol.jpg'
+import automovel3 from '../../images/impala.jpg'
+import automovel4 from '../../images/kombi.jpg'
 
 import { useState } from 'react'
 
@@ -11,20 +11,20 @@ function FormsAutomovel(props){
 
     //a lista de imagens importadas fica aqui
     let imagens = {
-        golf,
-        gol,
-        impala,
-        kombi,
+        automovel1,
+        automovel2,
+        automovel3,
+        automovel4,
     }
 
     function trocarModelo(tipo){
-        if (tipo === "golf"){
+        if (tipo === "automovel1"){
             return("jeta")
-        } else if(tipo === "gol"){
+        } else if(tipo === "automovel2"){
             return("fucs")
-        } else if(tipo === "impala"){
+        } else if(tipo === "automovel3"){
             return("honda")
-        } else if(tipo === "kombi"){
+        } else if(tipo === "automovel4"){
             return("toyota")
         }
     }
