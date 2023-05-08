@@ -3,6 +3,8 @@ import imagem2 from '../../galeria/imagem2.jpg'
 import imagem3 from '../../galeria/imagem3.jpg'
 import imagem4 from '../../galeria/imagem4.jpg'
 
+import style from './Imagens.module.css'
+
 import { useState } from 'react'
 
 function Imagens(props){
@@ -38,16 +40,16 @@ function Imagens(props){
     }
 
     return(
-        <div>
-            <h1>{props.name}</h1>
-            <p>Galeria de Imagens</p>
-            <form >
+        <div className={style.Imagens}>
+            <h1 className={style.elements}>{props.name}</h1>
+            <p className={style.elements}>Galeria de Imagens</p>
+            <form className={style.elements}>
                 <input type="text" placeholder="Insira o número da imagem:" onChange={handleChange} />
-                <button onClick={submit}>inserir</button>  
-                <button onClick={remove}>excluir</button>
+                <li className={style.li}><button onClick={submit}>inserir</button>
+                    <button onClick={remove}>excluir</button></li>
             </form>
             {galeria.map((imagem)=>(
-                        <img src={imagens[imagem.name]} key = {galeria.index} style={{width:'20em'}} alt="imagens"/>
+                        <img src={imagens[imagem.name]} key = {galeria.index} style={{width:'20em'}} alt=""/>
             ))}
         </div>
     )

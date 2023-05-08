@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+import styles from './APIs.module.css'
+
 function APIs(props){
     const [starwarsList, setStarwarsList] = useState([])
 
@@ -11,12 +13,12 @@ function APIs(props){
     },[])
 
     return(
-        <div>
-            <h1>{props.name}</h1>
-            <h2>Personagens do StarWars</h2>
+        <div className={styles.API}>
+            <h1 className={styles.elements}>{props.name}</h1>
+            <h2 className={styles.elements}>Personagens do StarWars</h2>
                     {(starwarsList.length > 0) && starwarsList.map((starwarsList)=>(
                         <ul>
-                            <li>name: {starwarsList.name}, altura: {starwarsList.height}</li>
+                            <li className={styles.li}>name: {starwarsList.name} -- altura: {starwarsList.height}</li>
                         </ul>
                     ))}
         </div>

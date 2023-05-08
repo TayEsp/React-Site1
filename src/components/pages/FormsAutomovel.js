@@ -5,6 +5,8 @@ import automovel4 from '../../images/kombi.jpg'
 
 import { useState } from 'react'
 
+import styles from './FormsAutomoveis.module.css'
+
 function FormsAutomovel(props){
 
     const [automovel, setAutomovel] = useState([])
@@ -60,18 +62,20 @@ function FormsAutomovel(props){
     }
 
     return(
-        <div>
+        <div className={styles.Forms}>
+             {(props.tipoAutomovel.length > 0) && <p className={styles.elements}>Isto é um {props.tipoAutomovel[props.index][0]}</p>}
+
             <form>
-                <input type="text" placeholder="Insira o nome do automovél:" onChange={handleChange}/>
-                <button onClick={submit}>inserir</button>  
-                <button onClick={remove}>excluir</button>
+                Insira o nome do automovel: <input type="text" placeholder="Insira o nome do automovél:" onChange={handleChange}/>
+                <li className={styles.li}><button onClick={submit}>inserir</button>  
+                <button onClick={remove}>excluir</button></li>
             </form>
+            <div>
+            {(props.tipoAutomovel.length > 0) && <img className={styles.img} src={imagens[props.tipoAutomovel[props.index][0]]} key = {props.index} onClick={mostrarAutomovel} alt="imagens"/>}
 
-            {(props.tipoAutomovel.length > 0) && <p>Isto é um {props.tipoAutomovel[props.index][0]}</p>}
-            {(props.tipoAutomovel.length > 0) &&<img src={imagens[props.tipoAutomovel[props.index][0]]} key = {props.index} onClick={mostrarAutomovel} style={{width:'20em'}} alt="imagens"/>}
-
-            <button onClick={imagemAnterior}>anterior</button>
-            <button onClick={imagemPosterior}>proximo</button>
+            <li button className={styles.buton}><button className={styles.elements} onClick={imagemAnterior}>anterior</button>
+            <button className={styles.elements} onClick={imagemPosterior}>proximo</button></li>
+            </div>
         </div>
     )
 }

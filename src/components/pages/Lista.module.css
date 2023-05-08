@@ -1,0 +1,21 @@
+.Lista {
+    text-align: center;
+    justify-content: space-between;
+    width: 1200px;
+  }
+
+.elements{
+    margin: 20px;
+}
+
+.li{
+    list-style: none;
+    align-items: center;
+    margin: 20px;
+}
+
+.buton{
+    list-style: none;
+    align-items: center;
+    margin-left: 6em;
+}

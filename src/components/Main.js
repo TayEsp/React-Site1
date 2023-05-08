@@ -4,7 +4,6 @@ import APIs from './pages/APIs';
 import Lista from './pages/Lista';
 import Imagens from './pages/Imagens';
 import Automoveis from './pages/Automoveis';
-
 import Container from './layout/Container';
 import Navbar from './layout/Navbar';
 import Footer from './layout/Footer';
