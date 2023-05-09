@@ -1,24 +1,3 @@
 {
-    "imagens": [],
-    "Automoveis": [],
-    "frutas": [{
-                    "id": 1, 
-                    "name": "Maçã"
-                },
-                {
-                    "id": 2, 
-                    "name": "Manga"
-                },
-                {
-                    "id": 3, 
-                    "name": "Morango"
-                },
-                {
-                    "id": 4, 
-                    "name": "Uva"
-                    },
-                {
-                    "id": 5, 
-                    "name": "Banana"
-                }]
+    "starwarsList":[]
 }

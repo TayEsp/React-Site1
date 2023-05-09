@@ -5,11 +5,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Você tem que instalar as dependencias utilizando npm install:
 
-### `npm instal`
+### `npm install`
 
-Voce deve instalar os pacotes json server, react icons, react router dom e o uuid. Utilizando o comando:
+Você deve instalar os pacotes json server, react icons, react router dom e o uuid. Utilizando o comando:
 
-### `npm install json-server react-icons react-router-dom uuid`
+### `npm install json-server react-icons react-router-dom`
 
 Você consegue rodar o codigo utilizando:
 
@@ -18,4 +18,6 @@ Você consegue rodar o codigo utilizando:
 Apos começar a aplicacao, deve-se abrir outro terminal e rodar o servidor de backend:
 
 ### `npm run backend`
+
+#### Obs: Ao importar as imagens nos componentes FormsAutomovel e Imagens, você deve adicionar as variavels nas listas correspondentes dos mesmos (que esta comentada na parte do codigo)
 

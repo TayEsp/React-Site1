@@ -1,18 +1,18 @@
-import {useNavigate} from 'react-router-dom'
-
 import imagem1 from '../../galeria/imagem1.jpg'
 import imagem2 from '../../galeria/imagem2.jpg'
 import imagem3 from '../../galeria/imagem3.jpg'
 import imagem4 from '../../galeria/imagem4.jpg'
 
-import { useState , useEffect} from 'react'
+import style from './Imagens.module.css'
+
+import { useState } from 'react'
 
 function Imagens(props){
 
-    const navigate = useNavigate()
-    const[imagem,setImagem] = useState()
-    const[galeria,setGaleria] = useState()
+    const[imagem,setImagem] = useState([])
+    const[galeria,setGaleria] = useState([])
     
+    //a lista de imagens importadas fica aqui
     let imagens = {
         imagem1,
          imagem2,
@@ -20,52 +20,37 @@ function Imagens(props){
          imagem4,
     }
 
-    useEffect(()=>{
-        fetch("http://localhost:5000/imagens",{method:"GET",headers:{"Content-Type":"application/json"}})
-        .then((resp)=>resp.json())
-        .then((data)=>{setImagem(data)})
-        .catch((err)=>console.log(err))
-    },[])
-
-
-    function createPost(imagens) {
-        fetch("http://localhost:5000/imagens",{method:"POST",headers:{"Content-Type":"application/json"},
-        body: JSON.stringify(imagens)})
-        .then((resp)=>resp.json())
-        .then((data)=>{console.log })
-        .catch((err)=>console.log(err))
-    }
-
     function trocarImagem(num){
-        if (num == 1){
-            setImagem("imagem1")
-        } else if(num == 2){
-            setImagem("imagem2")
-        } else if(num == 3){
-            setImagem("imagem3")
-        } else if(num == 4){
-            setImagem("imagem4")
-        }
+        const img = ("imagem" + num)
+        return (img)
     }
 
     const submit = (e) => {
         e.preventDefault()
-        createPost(galeria)
+        setGaleria([...galeria, imagem])
+    }
+
+    const remove = (e) => {
+        e.preventDefault()
+        setGaleria(galeria.filter((img)=> imagem.name !== img.name))
+    }
+
+    function handleChange(e){
+        setImagem({name: (trocarImagem(e.target.value))})
     }
 
     return(
-        <div>
-            <h1>{props.name}</h1>
-            <p>Galeria de Imagens</p>
-            <form onSubmit={submit}>
-                <input type="number" placeholder="Insira o número da imagem:" handleOnChange={createPost}/>
-                <button type="submit">inserir</button>
-                <button type="submit">excluir</button>
+        <div className={style.Imagens}>
+            <h1 className={style.elements}>{props.name}</h1>
+            <p className={style.elements}>Galeria de Imagens</p>
+            <form className={style.elements}>
+                <input type="text" placeholder="Insira o número da imagem:" onChange={handleChange} />
+                <li className={style.li}><button onClick={submit}>inserir</button>
+                    <button onClick={remove}>excluir</button></li>
             </form>
-            {galeria.map((galeria)=>(
-                        <img src={imagens[galeria.src]} key={galeria.id} style={{width:'20em'}} alt="imagens"/>
+            {galeria.map((imagem)=>(
+                        <img src={imagens[imagem.name]} key = {galeria.index} style={{width:'20em'}} alt=""/>
             ))}
-            <img src={imagens[imagem]} style={{width:'20em'}} alt="imagens"/>
         </div>
     )
 }

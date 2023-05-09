@@ -2,7 +2,7 @@ import styles from './Home.module.css'
 
 function Home(props){
     return(
-        <section>
+        <section className ={styles.Home}>
             <h1>{props.name}</h1>
             <div>
                 <h3>Bem vindo! esta é a {props.name} do site do Trabalho 1</h3>
